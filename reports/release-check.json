@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "python_build_host": "3.13.18",
+  "wheel_core_python": "3.12",
+  "version": "0.1.0",
+  "core_optional_dependencies_absent": true,
+  "demo_champion": "3f63cb2c239f6a65d8f7908ac166868e574459d0af598b4f222ec4c5065a31f5",
+  "deployment_output": {
+    "id": "0017",
+    "name": "Ada"
+  },
+  "wheel_includes_inspector_and_mit": true,
+  "sdist_excludes_private_context": true,
+  "artifacts": [
+    {
+      "file": "dist/workevo-0.1.0-py3-none-any.whl",
+      "bytes": 40667,
+      "sha256": "35e250e7cd8e3f718b89ee05ce03a7becb640b4a39d3123ffa80f6f8e2f4f0bb"
+    },
+    {
+      "file": "dist/workevo-0.1.0.tar.gz",
+      "bytes": 856909,
+      "sha256": "e6c09865164373fe90ef61017d3465e32ff25be65b6e58651e30f5c1990aeb73"
+    }
+  ]
+}

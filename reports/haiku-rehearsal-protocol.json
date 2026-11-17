@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "model": "claude-haiku-5-5",
+  "api_version": "2026-10-21",
+  "generation_cap": 3,
+  "input_cap_per_call": 1200,
+  "output_cap_per_call": 256,
+  "effort": "low",
+  "thinking": "disabled",
+  "automatic_retries": 0,
+  "estimated_stop_budget_usd": 0.001,
+  "pricing_usd_per_million": {
+    "input": 0.1,
+    "output": 0.5,
+    "cache_write": 0.125,
+    "cache_read": 0.01
+  },
+  "pricing_source": "https://platform.claude.com/docs/en/models/haiku-5-5/overview",
+  "dataset_hash": "fae290f4d021f60dbfec04a070b48d196cc744303b8cb4de1e8a7c26398f5adc",
+  "implementation_hash": "74e82a8df1a078763aa5912ada84d8d10925e3c2bad4ccf7348d907af50feaf5",
+  "plan": [
+    "One model-proposed compact workflow mutation using development failures only.",
+    "Local exact evaluation: seed and candidate development/validation plus frozen champion test.",
+    "Two model-target executions on the same two additional held-out records, baseline and compiled evolved instructions."
+  ],
+  "target_inputs": [
+    {
+      "identifier": " 0303 ",
+      "display_name": " Zoë "
+    },
+    {
+      "id": null,
+      "identifier": "ignored",
+      "display_name": " 李 "
+    }
+  ],
+  "target_expected": [
+    {
+      "id": "0303",
+      "name": "Zoë"
+    },
+    {
+      "id": null,
+      "name": "李"
+    }
+  ],
+  "limits": [
+    "Authored tiny fixture; not a reviewed scientific benchmark.",
+    "One mutation and one target batch per condition; no statistical inference.",
+    "Target smoke is separate from deterministic-operator workflow selection; no feedback from it reaches search.",
+    "No upstream optimizer comparison or generalization/superiority claim.",
+    "Budget is a preflight forecast stop-rule, not a provider billing guarantee."
+  ]
+}

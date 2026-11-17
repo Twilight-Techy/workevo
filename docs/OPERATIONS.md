@@ -1,0 +1,15 @@
+# Local operation and recovery
+
+A study records immutable configuration, skill hashes, attempts, events, budget reservations, selection decisions and a champion pointer in a schema-versioned SQLite database. Larger public artifacts are explicit local exports. Version 1 stores bounded content-addressed JSON in SQLite; there is no separate large-blob backend or automatic deletion/GC. Keep history until an explicit retention policy is chosen by the application.
+
+Each attempt starts durably before dispatch and finishes once. Reservation ledgers survive failure; unresolved model usage stays charged. Reopening a study reuses completed exact candidate/case/repeat evidence. The absolute study deadline includes downtime. Increasing a limit means a new study/configuration, not mutating the previous comparison.
+
+A single-writer lease prevents simultaneous drivers. `--recover` can reclaim a verified abandoned lease on the same host and marks incomplete local attempts interrupted; it cannot steal a lease from a live process. Only use it for trusted resettable local operators after the old owner has stopped. It preserves charges and starts replacement attempts with new reservations. This is not permission to replay external side effects. An unresolved proposer must be explicitly abandoned with `discard-proposal`; it is never automatically replayed. Abandoning keeps any tokens/spend already reserved.
+
+A caller cancellation is propagated to the async host callback. A crashed or cancelled final test may fill missing exact cases, but a completed final-test result is immutable. A malformed candidate or model callback error never silently removes the incumbent. Short safe error codes replace callback exception text in persisted/public reports.
+
+Back up a closed database together with exported bundles/reports. For a live WAL database, use SQLite's online backup API; copying the main file alone may omit committed WAL state. There is no service process that must keep running. Unknown/newer schema versions and unversioned nonempty databases are rejected with a migration error; future schema migrations need explicit implementation and rollback tests.
+
+The inspector is self-contained HTML. Open it directly; no public host or credentials are required. It displays recorded data, not generated explanations. Reports omit raw task inputs, outputs, labels and context by default, but contain hypotheses, operator names, IDs and metric outcomes. Review shareable artifacts for application-specific sensitive metadata before publishing them. Private local context, databases, credentials and execution directories are ignored by Git and excluded from distributions.
+
+All Python operators, factories, validators and model callbacks are trusted application code. Generated workflow JSON only names registered operators and validates parameters; it cannot load source, imports or shell commands. The runner does not provide filesystem/network/process isolation for arbitrary Python. An OS-isolated code-task runner is outside version 0.1.0.

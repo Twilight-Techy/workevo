@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-17",
+  "project": "workevo",
+  "tests": 62,
+  "python_matrix": {
+    "3.11.18": "passed",
+    "3.12.3": "passed",
+    "3.13.18": "passed"
+  },
+  "ruff": "passed",
+  "mypy": "passed",
+  "lock": "passed",
+  "local_markdown_links": 37,
+  "context_unchanged_sha256": "69728690e684c8f95008c8f369a67f16c1922b5b8d8ea5f795d28898b300016f",
+  "implementation_hash": "74e82a8df1a078763aa5912ada84d8d10925e3c2bad4ccf7348d907af50feaf5",
+  "software_runs": 25,
+  "software_trials": 1416,
+  "live_model_generations": 3,
+  "preflight_calls": 3,
+  "automatic_retries": 0,
+  "model": "claude-haiku-5-5",
+  "measured_input_tokens": 775,
+  "measured_output_tokens": 92,
+  "estimated_api_cost_usd": 0.0001235,
+  "secret_pattern_findings": 0,
+  "browser_receipt": "reports/inspector.json",
+  "live_receipt": "reports/live-haiku.json",
+  "research_acceptance": "broader reviewed study pending T015-T017"
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "mode": "offline_rehearsal",
+  "protocol_hash": "7c12a0b132d17652ec1451fdf650dcebf27dafad26d8e5c3be5d97219aba4ba5",
+  "status": "passed",
+  "model": "claude-haiku-5-5",
+  "automatic_retries": 0,
+  "limitations": [
+    "Authored tiny fixture; not a reviewed scientific benchmark.",
+    "One mutation and one target batch per condition; no statistical inference.",
+    "Target smoke is separate from deterministic-operator workflow selection; no feedback from it reaches search.",
+    "No upstream optimizer comparison or generalization/superiority claim.",
+    "Budget is a preflight forecast stop-rule, not a provider billing guarantee."
+  ],
+  "optimization": {
+    "result": {
+      "schema_version": 1,
+      "study_id": "f2ed4365bf374c29b929323bbb7bc667",
+      "status": "stopped",
+      "champion": "1582beb2d921d05e7e027a21bca7025ff42f2f17cf467024f989a0b429c0e7d8",
+      "candidates": 2,
+      "stop_reason": "budget_exhausted"
+    },
+    "champion": "1582beb2d921d05e7e027a21bca7025ff42f2f17cf467024f989a0b429c0e7d8",
+    "validation_quality": 1.0,
+    "final_quality": 1.0,
+    "selected_parameters": {
+      "aliases": true,
+      "trim": true
+    },
+    "usage": {
+      "candidates": 2,
+      "micro_usd": 63,
+      "model_calls": 1,
+      "tokens": 445,
+      "tool_calls": 56,
+      "trials": 40,
+      "validation_looks": 2
+    },
+    "decisions": [
+      {
+        "candidate": "d4e4b383949b4bac27656258453a33053b270477128003630a1cbbe59be98b21",
+        "incumbent": null,
+        "outcome": "accepted",
+        "reason": "eligible seed"
+      },
+      {
+        "candidate": "1582beb2d921d05e7e027a21bca7025ff42f2f17cf467024f989a0b429c0e7d8",
+        "incumbent": "d4e4b383949b4bac27656258453a33053b270477128003630a1cbbe59be98b21",
+        "outcome": "accepted",
+        "reason": "paired correctness improved"
+      }
+    ]
+  },
+  "paired_target": {
+    "baseline": {
+      "output": [
+        {
+          "id": "0303",
+          "name": "Zoë"
+        },
+        {
+          "id": null,
+          "name": "李"
+        }
+      ],
+      "complete": true,
+      "reason": "completed",
+      "calls": 1,
+      "latency_ms": 22.654886000964325,
+      "usage": {
+        "candidates": 1,
+        "micro_usd": 63,
+        "model_calls": 1,
+        "tokens": 445,
+        "tool_calls": 1,
+        "trials": 1
+      },
+      "correct_records": 2
+    },
+    "evolved": {
+      "output": [
+        {
+          "id": "0303",
+          "name": "Zoë"
+        },
+        {
+          "id": null,
+          "name": "李"
+        }
+      ],
+      "complete": true,
+      "reason": "completed",
+      "calls": 1,
+      "latency_ms": 21.52064599977166,
+      "usage": {
+        "candidates": 1,
+        "micro_usd": 63,
+        "model_calls": 1,
+        "tokens": 445,
+        "tool_calls": 1,
+        "trials": 1
+      },
+      "correct_records": 2
+    },
+    "records_per_condition": 2
+  },
+  "local_report": ".workevo/rehearsal-/ba6e93ef58a44c408fe9e145078eef7f/inspector.html",
+  "fixture_trials": 40,
+  "generation_attempts": 3,
+  "preflight_calls": 3,
+  "calls": [
+    {
+      "role": "optimizer",
+      "preflight_input_tokens": 400,
+      "output_cap": 256,
+      "status": "measured",
+      "forecast_usd": 0.0001808,
+      "request_hash": "5bceff9dba801f0c3b12d4a43b2021e132d471181c0f5b3950ed20d75606e922",
+      "usage": {
+        "input_tokens": 400,
+        "output_tokens": 45,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      },
+      "estimated_cost_usd": 6.25e-05,
+      "stop_reason": "end_turn",
+      "latency_ms": 2.119823999237269,
+      "model": "claude-haiku-5-5"
+    },
+    {
+      "role": "target",
+      "preflight_input_tokens": 400,
+      "output_cap": 256,
+      "status": "measured",
+      "forecast_usd": 0.0001808,
+      "request_hash": "ac3da7c1f5d2986278db6c4ee3a7122a5a973ad7b12f35a8035a356bae41c3e9",
+      "usage": {
+        "input_tokens": 400,
+        "output_tokens": 45,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      },
+      "estimated_cost_usd": 6.25e-05,
+      "stop_reason": "end_turn",
+      "latency_ms": 0.6820020007580752,
+      "model": "claude-haiku-5-5"
+    },
+    {
+      "role": "target",
+      "preflight_input_tokens": 400,
+      "output_cap": 256,
+      "status": "measured",
+      "forecast_usd": 0.0001808,
+      "request_hash": "05c1df56779fa08f9f570726cf480baef5dc337a5aa4320f435b50e1ca94aa53",
+      "usage": {
+        "input_tokens": 400,
+        "output_tokens": 45,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      },
+      "estimated_cost_usd": 6.25e-05,
+      "stop_reason": "end_turn",
+      "latency_ms": 0.5590260007011238,
+      "model": "claude-haiku-5-5"
+    }
+  ],
+  "estimated_cost_usd": 0.0001875,
+  "unresolved_usage": false,
+  "usage_measured": false,
+  "receipt_timestamp": "2026-11-17T13:45:12Z"
+}

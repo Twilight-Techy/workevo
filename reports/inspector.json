@@ -1,0 +1,23 @@
+{
+  "desktop": [
+    1440,
+    1080
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "candidate_count": 5,
+  "errors": [],
+  "checks": [
+    "filter",
+    "search",
+    "selection",
+    "trace disclosure",
+    "metric display",
+    "responsive overflow"
+  ],
+  "screenshot": "reports/inspector.png",
+  "source": ".workevo/publish-demo/inspector.html",
+  "data_kind": "real local recorded authored-fixture run"
+}

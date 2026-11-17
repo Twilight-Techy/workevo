@@ -1,0 +1,29 @@
+# Local source history and its integrity receipt
+/context/
+
+# Environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+
+# Execution state and generated artifacts
+/.workevo/
+/runs/
+/artifacts/
+/dist/
+/build/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Ignore artifacts produced with the former local name too.
+/.workflow-evolver/

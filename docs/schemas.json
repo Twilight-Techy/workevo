@@ -1,0 +1,981 @@
+{
+  "Skill": {
+    "$defs": {
+      "ContextRequirement": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "key": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Key",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          },
+          "max_bytes": {
+            "default": 4096,
+            "maximum": 65536,
+            "minimum": 1,
+            "title": "Max Bytes",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "key",
+          "revision"
+        ],
+        "title": "ContextRequirement",
+        "type": "object"
+      },
+      "JsonValue": {},
+      "Node": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "operator": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Operator",
+            "type": "string"
+          },
+          "version": {
+            "default": "1",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Version",
+            "type": "string"
+          },
+          "parameters": {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "title": "Parameters",
+            "type": "object"
+          },
+          "next": {
+            "default": "done",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Next",
+            "type": "string"
+          },
+          "branch_field": {
+            "anyOf": [
+              {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[\\w.:-]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Branch Field"
+          },
+          "on_false": {
+            "anyOf": [
+              {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[\\w.:-]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "On False"
+          },
+          "max_visits": {
+            "default": 1,
+            "maximum": 1024,
+            "minimum": 1,
+            "title": "Max Visits",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "operator"
+        ],
+        "title": "Node",
+        "type": "object"
+      },
+      "Workflow": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "entry": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Entry",
+            "type": "string"
+          },
+          "nodes": {
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "title": "Nodes",
+            "type": "array"
+          },
+          "terminals": {
+            "default": [
+              "done"
+            ],
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[\\w.:-]+$",
+              "type": "string"
+            },
+            "title": "Terminals",
+            "type": "array"
+          },
+          "max_steps": {
+            "default": 32,
+            "maximum": 1024,
+            "minimum": 1,
+            "title": "Max Steps",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "entry",
+          "nodes"
+        ],
+        "title": "Workflow",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "skill_id": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Skill Id",
+        "type": "string"
+      },
+      "family": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Family",
+        "type": "string"
+      },
+      "instructions": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Instructions",
+        "type": "string"
+      },
+      "workflow": {
+        "$ref": "#/$defs/Workflow"
+      },
+      "parents": {
+        "default": [],
+        "items": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "maxItems": 2,
+        "title": "Parents",
+        "type": "array"
+      },
+      "hypothesis": {
+        "default": "Seed",
+        "maxLength": 2000,
+        "title": "Hypothesis",
+        "type": "string"
+      },
+      "context_requirements": {
+        "default": [],
+        "items": {
+          "$ref": "#/$defs/ContextRequirement"
+        },
+        "maxItems": 16,
+        "title": "Context Requirements",
+        "type": "array"
+      },
+      "tags": {
+        "default": [],
+        "items": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[\\w.:-]+$",
+          "type": "string"
+        },
+        "title": "Tags",
+        "type": "array"
+      }
+    },
+    "required": [
+      "skill_id",
+      "family",
+      "instructions",
+      "workflow"
+    ],
+    "title": "Skill",
+    "type": "object"
+  },
+  "Node": {
+    "$defs": {
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "id": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "operator": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Operator",
+        "type": "string"
+      },
+      "version": {
+        "default": "1",
+        "maxLength": 128,
+        "minLength": 1,
+        "title": "Version",
+        "type": "string"
+      },
+      "parameters": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Parameters",
+        "type": "object"
+      },
+      "next": {
+        "default": "done",
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Next",
+        "type": "string"
+      },
+      "branch_field": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Branch Field"
+      },
+      "on_false": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "On False"
+      },
+      "max_visits": {
+        "default": 1,
+        "maximum": 1024,
+        "minimum": 1,
+        "title": "Max Visits",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "id",
+      "operator"
+    ],
+    "title": "Node",
+    "type": "object"
+  },
+  "Workflow": {
+    "$defs": {
+      "JsonValue": {},
+      "Node": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "operator": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Operator",
+            "type": "string"
+          },
+          "version": {
+            "default": "1",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Version",
+            "type": "string"
+          },
+          "parameters": {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "title": "Parameters",
+            "type": "object"
+          },
+          "next": {
+            "default": "done",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Next",
+            "type": "string"
+          },
+          "branch_field": {
+            "anyOf": [
+              {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[\\w.:-]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Branch Field"
+          },
+          "on_false": {
+            "anyOf": [
+              {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[\\w.:-]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "On False"
+          },
+          "max_visits": {
+            "default": 1,
+            "maximum": 1024,
+            "minimum": 1,
+            "title": "Max Visits",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "operator"
+        ],
+        "title": "Node",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "entry": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Entry",
+        "type": "string"
+      },
+      "nodes": {
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "maxItems": 64,
+        "minItems": 1,
+        "title": "Nodes",
+        "type": "array"
+      },
+      "terminals": {
+        "default": [
+          "done"
+        ],
+        "items": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[\\w.:-]+$",
+          "type": "string"
+        },
+        "title": "Terminals",
+        "type": "array"
+      },
+      "max_steps": {
+        "default": 32,
+        "maximum": 1024,
+        "minimum": 1,
+        "title": "Max Steps",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "entry",
+      "nodes"
+    ],
+    "title": "Workflow",
+    "type": "object"
+  },
+  "Dataset": {
+    "$defs": {
+      "Case": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "template": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[\\w.:-]+$",
+            "title": "Template",
+            "type": "string"
+          },
+          "inputs": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "expected": {
+            "$ref": "#/$defs/JsonValue"
+          }
+        },
+        "required": [
+          "id",
+          "template",
+          "inputs",
+          "expected"
+        ],
+        "title": "Case",
+        "type": "object"
+      },
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "evidence_kind": {
+        "default": "application_evaluation",
+        "enum": [
+          "authored_software_fixture",
+          "application_evaluation"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "name": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Name",
+        "type": "string"
+      },
+      "family": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Family",
+        "type": "string"
+      },
+      "development": {
+        "items": {
+          "$ref": "#/$defs/Case"
+        },
+        "minItems": 1,
+        "title": "Development",
+        "type": "array"
+      },
+      "validation": {
+        "items": {
+          "$ref": "#/$defs/Case"
+        },
+        "minItems": 1,
+        "title": "Validation",
+        "type": "array"
+      },
+      "test": {
+        "items": {
+          "$ref": "#/$defs/Case"
+        },
+        "minItems": 1,
+        "title": "Test",
+        "type": "array"
+      }
+    },
+    "required": [
+      "name",
+      "family",
+      "development",
+      "validation",
+      "test"
+    ],
+    "title": "Dataset",
+    "type": "object"
+  },
+  "Limits": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "candidates": {
+        "default": 6,
+        "maximum": 10000,
+        "minimum": 1,
+        "title": "Candidates",
+        "type": "integer"
+      },
+      "trials": {
+        "default": 512,
+        "minimum": 1,
+        "title": "Trials",
+        "type": "integer"
+      },
+      "tool_calls": {
+        "default": 4096,
+        "minimum": 1,
+        "title": "Tool Calls",
+        "type": "integer"
+      },
+      "retries": {
+        "default": 64,
+        "minimum": 0,
+        "title": "Retries",
+        "type": "integer"
+      },
+      "model_calls": {
+        "default": 16,
+        "minimum": 0,
+        "title": "Model Calls",
+        "type": "integer"
+      },
+      "tokens": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Tokens"
+      },
+      "micro_usd": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Micro Usd"
+      },
+      "validation_looks": {
+        "default": 6,
+        "minimum": 1,
+        "title": "Validation Looks",
+        "type": "integer"
+      },
+      "seconds": {
+        "default": 120,
+        "exclusiveMinimum": 0,
+        "title": "Seconds",
+        "type": "number"
+      },
+      "artifact_bytes": {
+        "default": 65536,
+        "maximum": 1048576,
+        "minimum": 128,
+        "title": "Artifact Bytes",
+        "type": "integer"
+      },
+      "mutation_bytes": {
+        "default": 8192,
+        "maximum": 65536,
+        "minimum": 1,
+        "title": "Mutation Bytes",
+        "type": "integer"
+      }
+    },
+    "title": "Limits",
+    "type": "object"
+  },
+  "Policy": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "repeats": {
+        "default": 1,
+        "maximum": 100,
+        "minimum": 1,
+        "title": "Repeats",
+        "type": "integer"
+      },
+      "quality_floor": {
+        "default": 0,
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Quality Floor",
+        "type": "number"
+      },
+      "min_gain": {
+        "default": 0,
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Min Gain",
+        "type": "number"
+      },
+      "patience": {
+        "default": 3,
+        "minimum": 1,
+        "title": "Patience",
+        "type": "integer"
+      }
+    },
+    "title": "Policy",
+    "type": "object"
+  },
+  "StudyConfig": {
+    "$defs": {
+      "Limits": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "candidates": {
+            "default": 6,
+            "maximum": 10000,
+            "minimum": 1,
+            "title": "Candidates",
+            "type": "integer"
+          },
+          "trials": {
+            "default": 512,
+            "minimum": 1,
+            "title": "Trials",
+            "type": "integer"
+          },
+          "tool_calls": {
+            "default": 4096,
+            "minimum": 1,
+            "title": "Tool Calls",
+            "type": "integer"
+          },
+          "retries": {
+            "default": 64,
+            "minimum": 0,
+            "title": "Retries",
+            "type": "integer"
+          },
+          "model_calls": {
+            "default": 16,
+            "minimum": 0,
+            "title": "Model Calls",
+            "type": "integer"
+          },
+          "tokens": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Tokens"
+          },
+          "micro_usd": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Micro Usd"
+          },
+          "validation_looks": {
+            "default": 6,
+            "minimum": 1,
+            "title": "Validation Looks",
+            "type": "integer"
+          },
+          "seconds": {
+            "default": 120,
+            "exclusiveMinimum": 0,
+            "title": "Seconds",
+            "type": "number"
+          },
+          "artifact_bytes": {
+            "default": 65536,
+            "maximum": 1048576,
+            "minimum": 128,
+            "title": "Artifact Bytes",
+            "type": "integer"
+          },
+          "mutation_bytes": {
+            "default": 8192,
+            "maximum": 65536,
+            "minimum": 1,
+            "title": "Mutation Bytes",
+            "type": "integer"
+          }
+        },
+        "title": "Limits",
+        "type": "object"
+      },
+      "Policy": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "repeats": {
+            "default": 1,
+            "maximum": 100,
+            "minimum": 1,
+            "title": "Repeats",
+            "type": "integer"
+          },
+          "quality_floor": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Quality Floor",
+            "type": "number"
+          },
+          "min_gain": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Min Gain",
+            "type": "number"
+          },
+          "patience": {
+            "default": 3,
+            "minimum": 1,
+            "title": "Patience",
+            "type": "integer"
+          }
+        },
+        "title": "Policy",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "implementation_hash": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Implementation Hash",
+        "type": "string"
+      },
+      "dataset_hash": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Dataset Hash",
+        "type": "string"
+      },
+      "family": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[\\w.:-]+$",
+        "title": "Family",
+        "type": "string"
+      },
+      "evaluator": {
+        "title": "Evaluator",
+        "type": "string"
+      },
+      "registry_hash": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Registry Hash",
+        "type": "string"
+      },
+      "proposer": {
+        "minLength": 1,
+        "title": "Proposer",
+        "type": "string"
+      },
+      "seed": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Seed",
+        "type": "string"
+      },
+      "limits": {
+        "$ref": "#/$defs/Limits"
+      },
+      "policy": {
+        "$ref": "#/$defs/Policy"
+      },
+      "context_hash": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Context Hash",
+        "type": "string"
+      },
+      "executor_identity": {
+        "default": "registered-offline-operators-v1",
+        "title": "Executor Identity",
+        "type": "string"
+      },
+      "generate_seed": {
+        "default": false,
+        "title": "Generate Seed",
+        "type": "boolean"
+      },
+      "development_keys": {
+        "default": [],
+        "items": {
+          "type": "string"
+        },
+        "title": "Development Keys",
+        "type": "array"
+      },
+      "validation_keys": {
+        "default": [],
+        "items": {
+          "type": "string"
+        },
+        "title": "Validation Keys",
+        "type": "array"
+      }
+    },
+    "required": [
+      "implementation_hash",
+      "dataset_hash",
+      "family",
+      "evaluator",
+      "registry_hash",
+      "proposer",
+      "seed",
+      "context_hash"
+    ],
+    "title": "StudyConfig",
+    "type": "object"
+  }
+}
