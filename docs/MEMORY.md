@@ -35,7 +35,7 @@ Instructions, workflow, parameters, operator versions, context requirements and 
 - Browser verification: actual stored demo at `.workevo/release-demo/`, self-contained HTML inspector, five candidates and 24 champion case outcomes. Desktop 1440×1080 and phone 390×844 checks cover filtering, search, selection, trace disclosure and no page-wide overflow. Zero page errors. Screenshot/receipt: `reports/inspector.png`, `reports/inspector-mobile.png`, `reports/inspector.json`. Source-free report omits raw inputs/outputs/labels/context; hypotheses and metric/trace metadata remain visible.
 - Optional Navconr example ran against real Navconr in a separate temporary environment: 39 exact source bytes returned for the fictional record contract. No Navconr source edits or model calls.
 - Release check: `scripts/release.py` builds wheel/source archive, verifies MIT and inspector inclusion, rejects private context/runtime files in artifacts, installs wheel in a fresh Python 3.12 environment without Navconr/OpenAI/Anthropic/pytest/Playwright, runs the demo/import and executes exported skill on a fresh input yielding `{id: "0017", name: "Ada"}`. `reports/release-check.json` records exact hashes. It is excluded from sdist to avoid a self-referential receipt. Rebuild after documentation changes to keep artifacts current.
-- CI definitions exist for the Python matrix and browser checks; no hosted run because no source repository has been published.
+- CI definitions cover the Python matrix and browser checks. The public repository now runs them on pushes; see the publication log below and GitHub Actions for current status.
 
 ## Source history and integrity
 
@@ -47,7 +47,7 @@ Initial setup completed T001–T002 and checked 14 local links. Current document
 
 T005–T014 and T018–T020 cover the local software, integration and release preparation. T015–T017 remain open for independently reviewed tasks, a frozen live-model study protocol, compatible budget-matched SkillOpt/GEPA/AFlow comparisons and transfer/uncertainty analysis. Do not claim superiority or reuse the small fixture's 100% as model evidence.
 
-Next research action is T015 once reviewed data/model choices and applicable paid-run authorization are available. The callable interfaces and CLI factories can connect the host's existing clients. Registry publication, public source push, hosting and paper submission remain separate actions. Use TASKS.md for exact acceptance rather than inflating completion from the local build.
+Next research action is T015 once reviewed data/model choices and applicable paid-run authorization are available. The callable interfaces and CLI factories can connect the host's existing clients. Public source publication is now user-authorized and completed. Registry publication, hosting and paper submission remain separate actions. Use TASKS.md for exact acceptance rather than inflating completion from the local build.
 
 
 Final boundary review: storage now revalidates skill artifacts, trial case/repeat identity and frozen-test membership. Accepted selection is checked again inside the champion transaction against the exact development/validation case-repeat manifest pinned in StudyConfig. Direct unscored promotion is rejected and rolled back. Empty evidence cannot be eligible. Two added storage-boundary tests bring the suite to 55 tests; final matrix/build receipts below apply after these changes.
@@ -70,7 +70,13 @@ One opt-in Haiku live run used exactly three generation calls and three prefligh
 
 `scripts/live_benchmark.py` is opt-in (`--live`); ordinary checks import/test fake transports only. Seven additional offline tests exercise full rehearsal, generation/input/spend caps, unresolved failures, truncation accounting and redirect refusal. No paid requests belong in CI.
 
-GitHub target is the authenticated user's account: `Twilight-Techy/workevo`, public under MIT. Source publication is authorized; confirm creation/push, exclusion scan and hosted-check status before reporting success. The name lookup for workevo is separate from the historical workflow-evolver check and does not reserve a registry name.
+GitHub target is the authenticated user's account: `Twilight-Techy/workevo`, public under MIT. Source publication is authorized and the initial push is verified; the exclusion scan is clean and hosted CI is monitored before handoff. The name lookup for workevo is separate from the historical workflow-evolver check and does not reserve a registry name.
 
 
 Renamed-source verification: 62 tests pass on Python 3.11.18, 3.12.3 and 3.13.18; Ruff, mypy and locked dependency checks pass. The 25-run/1,416-trial offline benchmark, generated schemas, desktop/mobile inspector checks and clean-wheel verification were refreshed under workevo. Current live/software protocols match the renamed implementation source hash. A pre-publication pattern scan found no credentials; context/receipt, environments, databases, runtime state, archives and build outputs are excluded. reports/verification.json records the combined evidence.
+
+
+Publication completed: https://github.com/Twilight-Techy/workevo is public, default branch main. Initial commit 66973191606ec7738af82dc294469b0534e77e31 matched remote main after push. Git identity uses the account's public profile name and GitHub noreply address. Context/integrity receipt, environments, runtime/archive directories, databases and distribution files are absent from the tracked tree; staged credential scans pass. First hosted check: https://github.com/Twilight-Techy/workevo/actions/runs/44096913084. A following documentation commit records this handoff; check Actions for its current result. The three-call Haiku allowance is spent as recorded; do not rerun it automatically.
+
+
+Hosted CI correction: first public run's browser job passed, but fresh Python jobs rejected runner.py's platform-sensitive `type: ignore` as unused. Replaced it with an explicit typing.cast around the JsonValue type expression; runtime behavior is unchanged and no warning/check is disabled. Fresh mypy and the ordinary suite are rerun, with a follow-up source push. This changes the conservative implementation source hash. The live protocol/receipt remain immutable evidence of the pre-cast revision (initial commit 6697319); do not rewrite their hash or incur more paid calls to refresh it. Offline comparisons and current demo/export are refreshed for the current implementation.

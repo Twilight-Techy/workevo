@@ -13,7 +13,7 @@
   "lock": "passed",
   "local_markdown_links": 37,
   "context_unchanged_sha256": "69728690e684c8f95008c8f369a67f16c1922b5b8d8ea5f795d28898b300016f",
-  "implementation_hash": "74e82a8df1a078763aa5912ada84d8d10925e3c2bad4ccf7348d907af50feaf5",
+  "implementation_hash": "bd8306f09a86378adba02f55f73b52f7293001acfbdbb7d2c3d6be1e24f463c4",
   "software_runs": 25,
   "software_trials": 1416,
   "live_model_generations": 3,
@@ -26,5 +26,11 @@
   "secret_pattern_findings": 0,
   "browser_receipt": "reports/inspector.json",
   "live_receipt": "reports/live-haiku.json",
-  "research_acceptance": "broader reviewed study pending T015-T017"
+  "research_acceptance": "broader reviewed study pending T015-T017",
+  "github_repository": "https://github.com/Twilight-Techy/workevo",
+  "initial_published_commit": "66973191606ec7738af82dc294469b0534e77e31",
+  "hosted_checks": "https://github.com/Twilight-Techy/workevo/actions",
+  "live_implementation_hash": "74e82a8df1a078763aa5912ada84d8d10925e3c2bad4ccf7348d907af50feaf5",
+  "live_source_commit": "66973191606ec7738af82dc294469b0534e77e31",
+  "ci_portability_fix": "Explicit typing.cast replaces platform-dependent type-ignore; live receipt retained without rerunning paid calls."
 }

@@ -65,5 +65,8 @@ Final verification: 55 tests pass on Python 3.11/3.12/3.13; Ruff, mypy, lock and
 
 ## Naming, publication and minimum-cost live validation
 
-- [ ] **T021 — Rename to workevo and publish GitHub source.** User-authorized on 2026-11-17. Rename folder/distribution/module/CLI and docs, run offline checks/benchmarks/build verification, scan the staged source for credentials/private artifacts, create the public account repository, push main and verify matching remote commit.
+- [x] **T021 — Rename to workevo and publish GitHub source.** User-authorized on 2026-11-17. Rename folder/distribution/module/CLI and docs, run offline checks/benchmarks/build verification, scan the staged source for credentials/private artifacts, create the public account repository, push main and verify matching remote commit.
 - [x] **T022 — Run an absolute-minimum live model benchmark.** User-authorized on 2026-11-17. Evidence: reports/live-haiku-protocol.json and reports/live-haiku.json; three Haiku generations, no retries, 775 input/92 output tokens, estimated $0.0001235. One model-selected mutation plus separate baseline/evolved target checks. This does not close the broader research study gates.
+
+
+GitHub publication verified: public MIT repository https://github.com/Twilight-Techy/workevo, main tracking origin/main, initial remote/local commit 66973191606ec7738af82dc294469b0534e77e31. Full 62-test suite and mypy pass locally on Python 3.11/3.12/3.13; 25-run/1,416-trial software benchmark refreshed. Hosted CI started at https://github.com/Twilight-Techy/workevo/actions/runs/44096913084. No further API generations after the three-call live receipt.

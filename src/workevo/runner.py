@@ -8,7 +8,7 @@ import inspect
 import time
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, cast
 
 from pydantic import BaseModel, ConfigDict, JsonValue, TypeAdapter, ValidationError
 
@@ -16,7 +16,7 @@ from .contracts import Skill, canonical, digest
 from .errors import BudgetExceeded, DeadlineExceeded, InvalidCandidate
 from .store import Store
 
-JSON: TypeAdapter[JsonValue] = TypeAdapter(JsonValue)  # type: ignore[arg-type]
+JSON: TypeAdapter[JsonValue] = TypeAdapter(cast(Any, JsonValue))
 
 
 @dataclass(frozen=True)

@@ -18,6 +18,6 @@
     "responsive overflow"
   ],
   "screenshot": "reports/inspector.png",
-  "source": ".workevo/publish-demo/inspector.html",
+  "source": ".workevo/ci-fixed-demo/inspector.html",
   "data_kind": "real local recorded authored-fixture run"
 }
