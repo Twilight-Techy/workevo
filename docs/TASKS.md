@@ -70,3 +70,5 @@ Final verification: 55 tests pass on Python 3.11/3.12/3.13; Ruff, mypy, lock and
 
 
 GitHub publication verified: public MIT repository https://github.com/Twilight-Techy/workevo, main tracking origin/main, initial remote/local commit 66973191606ec7738af82dc294469b0534e77e31. Full 62-test suite and mypy pass locally on Python 3.11/3.12/3.13; 25-run/1,416-trial software benchmark refreshed. Hosted CI started at https://github.com/Twilight-Techy/workevo/actions/runs/44096913084. No further API generations after the three-call live receipt.
+
+Hosted acceptance: https://github.com/Twilight-Techy/workevo/actions/runs/44147063716 passed on 908052592345eef1abcb04962f2574fabe748021: Python 3.11/3.12/3.13 tests/type/lint/build and the browser inspector job are all successful. T021 and T022 are complete.

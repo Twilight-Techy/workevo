@@ -32,5 +32,16 @@
   "hosted_checks": "https://github.com/Twilight-Techy/workevo/actions",
   "live_implementation_hash": "74e82a8df1a078763aa5912ada84d8d10925e3c2bad4ccf7348d907af50feaf5",
   "live_source_commit": "66973191606ec7738af82dc294469b0534e77e31",
-  "ci_portability_fix": "Explicit typing.cast replaces platform-dependent type-ignore; live receipt retained without rerunning paid calls."
+  "ci_portability_fix": "Explicit typing.cast replaces platform-dependent type-ignore; live receipt retained without rerunning paid calls.",
+  "hosted_ci": {
+    "url": "https://github.com/Twilight-Techy/workevo/actions/runs/44147063716",
+    "commit": "908052592345eef1abcb04962f2574fabe748021",
+    "conclusion": "success",
+    "jobs": [
+      "python (3.11)",
+      "python (3.12)",
+      "python (3.13)",
+      "inspector"
+    ]
+  }
 }
