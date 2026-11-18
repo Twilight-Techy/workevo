@@ -1,5 +1,7 @@
 # Recorded software evidence
 
+For the benchmark methods, charts, cost tables and reproduction guide, see [BENCHMARKS.md](../docs/BENCHMARKS.md). The [friendly README](../README.md) highlights results; the [technical README](../README.technical.md) covers integration and development.
+
 `software-study-protocol.json` is written before execution. `software-study.json` contains the frozen protocol, code/dataset identities, every per-case trial, all selection events and resource charges, plus aggregate summaries. These are fictional authored software fixtures with exact labels, not independently reviewed scientific benchmarks.
 
 The run contains five methods across five seed settings: 25 studies and 1,416 trials. Each study has the same upper candidate/resource limits; actual work is reported. Unchanged-seed and authored-reference controls intentionally perform less search.

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-18",
+  "change": "friendly and technical README split; benchmark presentation",
+  "friendly_readme": "README.md",
+  "technical_readme": "README.technical.md",
+  "benchmark_guide": "docs/BENCHMARKS.md",
+  "local_links_and_anchors_checked": 85,
+  "svg_files_parsed": 2,
+  "python_examples_executed": 1,
+  "offline_cli_and_deployment": "passed",
+  "browser": {
+    "style": "local GitHub-style Markdown preview",
+    "desktop_width": 1280,
+    "phone_width": 390,
+    "images_and_badges_loaded": 7,
+    "expandable_setup": "passed",
+    "page_wide_overflow": false,
+    "page_errors": []
+  },
+  "benchmark_plot": "docs/assets/benchmark-results.svg",
+  "plot_provenance": "docs/assets/benchmark-results.json",
+  "existing_evidence_sha256": {
+    "reports/software-study.json": "30e01fde775feb5edb5c1780dc99062a939ff095eb006b0e028cd2b2a7e41ba3",
+    "reports/software-study-protocol.json": "e397b8c33efeb24044e8345b4811145e459f3166fe5785c3ac544fde840e83b4",
+    "reports/live-haiku.json": "403f4a097d3ae347b167142860a2e753c0d4fab1bcce1714b0784713bf68c250",
+    "reports/live-haiku-protocol.json": "ad13dc261642ab85955f14a53a3976767ad8a1d0298b8343bf4738f28e11845f"
+  },
+  "implementation_hash_unchanged": "bd8306f09a86378adba02f55f73b52f7293001acfbdbb7d2c3d6be1e24f463c4",
+  "new_model_calls": 0,
+  "additional_api_spend_usd": 0,
+  "release_checks": "clean-wheel execution; both READMEs and SVG assets included; private context excluded"
+}

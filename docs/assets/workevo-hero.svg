@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title description">
+  <title id="title">workevo — better workflows, fixed model weights</title>
+  <desc id="description">A dark forest-green banner with a branching workflow. One bright path leads to a retained skill; other trial paths remain visible.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102520"/><stop offset="1" stop-color="#091513"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#87dcb1" stop-opacity=".18"/><stop offset="1" stop-color="#87dcb1" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#98c9b1" opacity=".13"/></pattern>
+    <linearGradient id="path" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#3b8065"/><stop offset="1" stop-color="#b9f3c8"/></linearGradient>
+  </defs>
+  <rect width="1280" height="420" rx="24" fill="url(#background)"/>
+  <rect width="1280" height="420" rx="24" fill="url(#grid)"/>
+  <ellipse cx="1045" cy="175" rx="320" ry="270" fill="url(#glow)"/>
+  <rect x="1" y="1" width="1278" height="418" rx="23" fill="none" stroke="#355849"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="62" y="52" width="200" height="32" rx="16" fill="#203e30" stroke="#47775a"/>
+    <text x="162" y="74" fill="#b8e9c6" font-size="13" text-anchor="middle" letter-spacing="2">WORKFLOW EVOLUTION</text>
+    <text x="58" y="218" fill="#eff8f1" font-size="116" font-weight="700" letter-spacing="-7">workevo<tspan fill="#a5e8bb">.</tspan></text>
+    <text x="64" y="276" fill="#c0d3c7" font-size="29" letter-spacing="-.4">Better workflows. Fixed model weights.</text>
+    <text x="65" y="352" fill="#93b8a3" font-size="17" letter-spacing="1.2">EXECUTE <tspan fill="#628c76"> / </tspan> EVALUATE <tspan fill="#628c76"> / </tspan> EVOLVE <tspan fill="#628c76"> / </tspan> REUSE</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M797 298 H841 Q861 298 861 278 V210 Q861 191 881 191 H931 Q950 191 950 172 V124 Q950 106 970 106 H1018" stroke="url(#path)" stroke-width="6"/>
+    <path d="M861 246 H945 Q965 246 965 266 V300 H1032" stroke="#3c6555" stroke-width="3" stroke-dasharray="6 8"/>
+    <path d="M927 191 H1038 Q1057 191 1057 211 V232 H1113" stroke="#3c6555" stroke-width="3"/>
+    <path d="M1054 106 H1166" stroke="#a5e8bb" stroke-width="6"/>
+    <path d="m1152 94 15 12-15 12" stroke="#a5e8bb" stroke-width="4"/>
+  </g>
+  <g stroke-width="2">
+    <rect x="764" y="279" width="40" height="40" rx="12" fill="#234333" stroke="#78ab8c"/>
+    <circle cx="861" cy="246" r="8" fill="#152e23" stroke="#8cc9a3"/>
+    <rect x="910" y="171" width="40" height="40" rx="12" fill="#294d39" stroke="#9bdbb0"/>
+    <rect x="1018" y="86" width="40" height="40" rx="12" fill="#a5e8bb" stroke="#d5f9e0"/>
+    <path d="m1028 107 7 7 13-15" fill="none" stroke="#163b28" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="1032" y="281" width="36" height="36" rx="11" fill="#14291f" stroke="#426651"/>
+    <rect x="1113" y="213" width="36" height="36" rx="11" fill="#14291f" stroke="#426651"/>
+  </g>
+  <text x="1020" y="58" font-family="system-ui, sans-serif" font-size="14" fill="#a5e8bb" letter-spacing="2">RETAINED SKILL</text>
+</svg>

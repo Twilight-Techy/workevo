@@ -4,7 +4,9 @@ Established 2026-11-17 (Africa/Lagos). The local version 0.1.0 software is imple
 
 | Document | Purpose |
 | --- | --- |
-| [Main README](../README.md) | Introduction and first local run |
+| [Main README](../README.md) | Friendly introduction, quick start, inspector and benchmark highlights |
+| [Technical README](../README.technical.md) | Architecture, library usage, integration, budgets and developer workflow |
+| [BENCHMARKS.md](BENCHMARKS.md) | Recorded correctness/cost comparisons, scope, raw evidence and reproduction |
 | [STATUS.md](STATUS.md) | Implemented capabilities, evidence and limits |
 | [API.md](API.md) | Library boundaries, CLI and artifacts |
 | [INTEGRATION.md](INTEGRATION.md) | Existing models, applications, tasks and optional Navconr context |

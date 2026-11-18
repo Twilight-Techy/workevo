@@ -1,6 +1,6 @@
 # Project memory
 
-Last updated: 2026-11-17 (Africa/Lagos).
+Last updated: 2026-11-18 (Africa/Lagos).
 
 ## User intent and authorization
 
@@ -12,7 +12,7 @@ Project root: `/home/ubuntu/MyProjects/workevo`. It is a sibling of Navconr, not
 
 Local package/CLI version 0.1.0 includes strict versioned records, bounded workflow graphs, a trusted async operator registry, copied/reset task state, exact evaluation, paired promotion, bounded hill climbing, seed/mutation/target model callbacks, durable SQLite attempts/events/usage, single-writer leases and explicit recovery, portable skill export/import/lookup, independent deployment execution, Pareto utilities, pinned context and a self-contained interactive inspector.
 
-The offline demo is a scripted regression fixture: seed correctness 37.5%, alias handling 62.5%, trimming 100%, redundant-step removal at equal correctness, then a rejected alias regression. The retained version is `3f63cb2c239f6a65d8f7908ac166868e574459d0af598b4f222ec4c5065a31f5`. A separate `FeedbackProposer` chooses domain edits from actual development failures; it is not a general model optimizer. Application callbacks support real target/proposer models, but only fake/local callbacks were tested.
+The offline demo is a scripted regression fixture: seed correctness 37.5%, alias handling 62.5%, trimming 100%, redundant-step removal at equal correctness, then a rejected alias regression. The retained version is `3f63cb2c239f6a65d8f7908ac166868e574459d0af598b4f222ec4c5065a31f5`. A separate `FeedbackProposer` chooses domain edits from actual development failures; it is not a general model optimizer. Application callbacks have offline fixture coverage and the separately scoped three-call Haiku check described below.
 
 Instructions, workflow, parameters, operator versions, context requirements and parent lineage participate in content identity. Study configuration pins dataset/evaluator, registered operator fingerprints, proposer identity, context identity, implementation source hash and resource limits. Changing any invalidates resumed comparisons. Model identity must include captured host settings not visible in source.
 
@@ -83,3 +83,14 @@ Hosted CI correction: first public run's browser job passed, but fresh Python jo
 
 
 Hosted verification complete: https://github.com/Twilight-Techy/workevo/actions/runs/44147063716 passed for implementation commit 908052592345eef1abcb04962f2574fabe748021. All 62 tests, fresh mypy/Ruff checks and distribution builds pass on Python 3.11/3.12/3.13; hosted desktop/mobile inspector checks pass too. The working tree and remote main matched after the correction push. This final handoff update changes documentation/verification metadata only and skips redundant CI. No extra paid generations occurred; total remains 3 Haiku generations, 775 input/92 output tokens, estimated $0.0001235.
+
+
+## Friendly/technical README split and benchmark presentation — 2026-11-18
+
+The user requested both README audiences, a visually appealing friendly entry point, and benchmarks. Previously there was one mixed README plus detailed docs. README.md is now the friendly guide with original forest-green SVG branding, centered badges/navigation, concise benefits, offline quick start, real inspector screenshot and visible benchmark results. README.technical.md now owns architecture, library usage, model/custom-task integration, selection/budgets/recovery, CLI workflow and developer/build commands.
+
+Added docs/BENCHMARKS.md with the actual five-policy correctness/search-expense table, methods, shared caps versus actual work, precise trial definition, reproducible commands and limits. Its separate live table preserves the existing three-call Haiku evidence (775 input/92 output, estimated $0.0001235; paired two-record check 1/2 vs 2/2). No new model calls or paid runs occurred. No old benchmark protocol/result was rewritten.
+
+The original hero is code-authored SVG. scripts/render_benchmarks.py uses optional Matplotlib 3.11.2 to render recorded results, recomputes aggregates from the raw runs, rejects mismatches and writes source-SHA/plot-value provenance. Matplotlib is not added to the core runtime or lockfile. The source distribution now includes README.technical.md; release checks assert inclusion of both READMEs and the hero/benchmark SVGs.
+
+Verification: all 85 local links/anchors in the documentation set resolve; both SVGs parse; plotted values and input-report SHA match the existing results. The full technical Python example runs in a separate temporary working directory and returns fixture quality 1.0 and the expected normalized record. Offline CLI demo and exported-skill execution pass. Reviewed GitHub-style local previews at desktop 1280px and phone 390px: all seven images/badges load, details expand, no page-wide overflow and no page errors; technical and benchmark pages also fit phone width. Ruff lint/format and lock checks pass. The clean-wheel/source release check passes, including source-history exclusion and new asset/doc inclusion. Runtime source implementation hash is unchanged; no new runtime tests or model calls were needed for this presentation change.

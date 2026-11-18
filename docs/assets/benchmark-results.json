@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "source": "reports/software-study.json",
+  "source_sha256": "30e01fde775feb5edb5c1780dc99062a939ff095eb006b0e028cd2b2a7e41ba3",
+  "renderer": "scripts/render_benchmarks.py",
+  "matplotlib": "3.11.2",
+  "runs": 25,
+  "trials": 1416,
+  "plotted_values": [
+    {
+      "method": "unchanged_seed",
+      "label": "Unchanged seed",
+      "color": "#779487",
+      "mean_quality": 0.375,
+      "min_quality": 0.375,
+      "max_quality": 0.375,
+      "mean_tool_calls": 48,
+      "mean_trials": 24
+    },
+    {
+      "method": "authored_reference",
+      "label": "Authored reference",
+      "color": "#a4c7de",
+      "mean_quality": 1.0,
+      "min_quality": 1.0,
+      "max_quality": 1.0,
+      "mean_tool_calls": 24,
+      "mean_trials": 24
+    },
+    {
+      "method": "random_edits",
+      "label": "Random edits",
+      "color": "#e2c591",
+      "mean_quality": 0.925,
+      "min_quality": 0.625,
+      "max_quality": 1.0,
+      "mean_tool_calls": 134.4,
+      "mean_trials": 91.2
+    },
+    {
+      "method": "development_feedback",
+      "label": "Development feedback",
+      "color": "#a5e8bb",
+      "mean_quality": 1.0,
+      "min_quality": 1.0,
+      "max_quality": 1.0,
+      "mean_tool_calls": 120,
+      "mean_trials": 72
+    },
+    {
+      "method": "instruction_only",
+      "label": "Instruction-only",
+      "color": "#779487",
+      "mean_quality": 0.375,
+      "min_quality": 0.375,
+      "max_quality": 0.375,
+      "mean_tool_calls": 144,
+      "mean_trials": 72
+    }
+  ],
+  "new_model_calls": 0,
+  "whisker": "observed seed-setting range; not a confidence interval"
+}

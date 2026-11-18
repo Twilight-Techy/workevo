@@ -30,7 +30,7 @@ dev = ["pytest>=8,<10", "pytest-asyncio>=0.24,<2", "ruff>=0.9,<1", "mypy>=1.15,<
 packages = ["src/workevo"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src", "tests", "examples", "scripts", "docs", "reports", "README.md", "AGENTS.md", "pyproject.toml", "uv.lock", "Makefile", "LICENSE", ".github"]
+include = ["src", "tests", "examples", "scripts", "docs", "reports", "README.md", "README.technical.md", "AGENTS.md", "pyproject.toml", "uv.lock", "Makefile", "LICENSE", ".github"]
 exclude = ["context", ".venv", "dist", "runs", "artifacts", ".workevo", "reports/release-check.json"]
 
 [tool.pytest.ini_options]

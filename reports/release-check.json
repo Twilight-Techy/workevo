@@ -14,13 +14,13 @@
   "artifacts": [
     {
       "file": "dist/workevo-0.1.0-py3-none-any.whl",
-      "bytes": 40658,
-      "sha256": "2a72ff9fd5a9471953f22bf2230f2cd34e7736e1e5c8d10e363741287ba8a7f8"
+      "bytes": 40921,
+      "sha256": "a8b3b4c25f550c27993c9016e3f4780e96f762b651222644098a0a1234453f31"
     },
     {
       "file": "dist/workevo-0.1.0.tar.gz",
-      "bytes": 856722,
-      "sha256": "b6f4221271c0043174b7389312125c0daf03bb67f553780723fa801852f901c3"
+      "bytes": 875194,
+      "sha256": "710076050f4890cb33445aaa23c611f8d65cb6733b736e1cda5873cef02b52d9"
     }
   ]
 }

@@ -39,6 +39,9 @@ def main():
     with tarfile.open(sdist) as archive:
         names = archive.getnames()
         assert any(n.endswith("/README.md") for n in names)
+        assert any(n.endswith("/README.technical.md") for n in names)
+        assert any(n.endswith("/docs/assets/workevo-hero.svg") for n in names)
+        assert any(n.endswith("/docs/assets/benchmark-results.svg") for n in names)
         assert any(n.endswith("/LICENSE") for n in names)
         assert not any(
             "/context/" in n or "/.venv/" in n or "/.workevo/" in n or n.endswith(".sqlite")
