@@ -178,6 +178,11 @@ def render(source: Path, output: Path) -> None:
             "Title": "Recorded authored-fixture benchmark results",
         },
     )
+    if output.suffix.lower() == ".svg":
+        # Matplotlib leaves line-end spaces in path data; keep generated source diff-clean.
+        output.write_text(
+            "\n".join(line.rstrip() for line in output.read_text().splitlines()) + "\n"
+        )
     plt.close(fig)
     provenance = {
         "schema_version": 1,
