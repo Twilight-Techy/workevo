@@ -29,5 +29,12 @@
   "implementation_hash_unchanged": "bd8306f09a86378adba02f55f73b52f7293001acfbdbb7d2c3d6be1e24f463c4",
   "new_model_calls": 0,
   "additional_api_spend_usd": 0,
-  "release_checks": "clean-wheel execution; both READMEs and SVG assets included; private context excluded"
+  "release_checks": "clean-wheel execution; both READMEs and SVG assets included; private context excluded",
+  "published_repository": "https://github.com/Twilight-Techy/workevo",
+  "github_rendered_readme_images": 7,
+  "hosted_ci": {
+    "url": "https://github.com/Twilight-Techy/workevo/actions/runs/44223554622",
+    "commit": "0f1e8e2e74cb55e52c319e2635ac4fdcffef709d",
+    "conclusion": "success"
+  }
 }
